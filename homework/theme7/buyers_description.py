@@ -30,3 +30,12 @@ def parse_csv_line(line):
     return customer_data
 
 
+def translate_sex(sex):
+    if sex.lower() == 'male':
+        return 'мужского'
+    elif sex.lower() == 'female':
+        return 'женского'
+    else:
+        return 'неопределенного'
+
+
