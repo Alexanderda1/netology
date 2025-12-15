@@ -58,3 +58,22 @@ def translate_device(device_type):
     return device_map.get(device_type.lower(), device_type)
 
 
+def format_description(customer_data):
+    name = customer_data['name']
+    sex_description = translate_sex(customer_data['sex'])
+    age = customer_data['age']
+    verb = get_verb_form(customer_data['sex'])
+    bill = customer_data['bill']
+    device = translate_device(customer_data['device_type'])
+    browser = customer_data['browser']
+    region = customer_data['region']
+
+    description = (
+        f"Пользователь {name} {sex_description} пола, {age} лет "
+        f"{verb} покупку на {bill} у.е. с {device} браузера {browser}. "
+        f"Регион, из которого совершалась покупка: {region}."
+    )
+
+    return description
+
+
