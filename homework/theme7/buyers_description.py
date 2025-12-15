@@ -77,3 +77,38 @@ def format_description(customer_data):
     return description
 
 
+def process_csv_to_txt(input_filename, output_filename):
+    lines = read_csv_file(input_filename)
+
+    if lines is None:
+        return False
+
+    descriptions = []
+
+    for i in range(1, len(lines)):
+        line = lines[i].strip()
+
+        if not line:
+            continue
+
+        customer_data = parse_csv_line(line)
+
+        if customer_data is None:
+            print(f"Предупреждение: Не удалось обработать строку {i + 1}")
+            continue
+
+        description = format_description(customer_data)
+        descriptions.append(description)
+
+    try:
+        with open(output_filename, 'w', encoding='utf-8') as file:
+            for desc in descriptions:
+                file.write(desc + '\n')
+        print(f"Успешно обработано {len(descriptions)} записей")
+        print(f"Результат сохранен в файл: {output_filename}")
+        return True
+    except Exception as e:
+        print(f"Ошибка при записи в файл: {e}")
+        return False
+
+
