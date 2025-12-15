@@ -48,3 +48,13 @@ def get_verb_form(sex):
         return 'совершило'
 
 
+def translate_device(device_type):
+    device_map = {
+        'mobile': 'мобильного',
+        'tablet': 'планшетного',
+        'desktop': 'стационарного',
+        'laptop': 'портативного'
+    }
+    return device_map.get(device_type.lower(), device_type)
+
+
