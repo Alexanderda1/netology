@@ -112,3 +112,14 @@ def process_csv_to_txt(input_filename, output_filename):
         return False
 
 
+if __name__ == "__main__":
+    input_file = "web_clients_correct.csv"
+    output_file = "customer_descriptions.txt"
+
+    print("Обрабатываем данные")
+    success = process_csv_to_txt(input_file, output_file)
+
+    if success:
+        print("Обработка завершена успешно!")
+    else:
+        print("Обработка завершена с ошибками(.")
