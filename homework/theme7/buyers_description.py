@@ -39,3 +39,12 @@ def translate_sex(sex):
         return 'неопределенного'
 
 
+def get_verb_form(sex):
+    if sex.lower() == 'male':
+        return 'совершил'
+    elif sex.lower() == 'female':
+        return 'совершила'
+    else:
+        return 'совершило'
+
+
